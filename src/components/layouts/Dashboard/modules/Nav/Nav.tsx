@@ -4,20 +4,24 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
+import { getEllipsesText } from '../../../../../utils/utils';
 
 const Nav = () => {
   const { isAuthenticated, logout, user } = useMoralis();
   const router = useRouter();
-  console.log(user?.get('ethAddress'));
+
+  if (user) {
+    console.log(getEllipsesText(user?.get('ethAddress')));
+  }
 
   const navigation = [
-    { name: 'Profile', href: '#' },
-    { name: 'Other', href: '#' },
+    { name: '🧾 Transactions', href: '#' },
+    { name: '💰 Balance', href: '#' },
   ];
 
   const userNavigation = [
     // { name: 'Your Profile', href: '#' },
-    // { name: 'Settings', href: '#' },
+    { name: user && getEllipsesText(user?.get('ethAddress')), href: '#' },
     { name: 'Sign out', href: '#' },
   ];
 
@@ -40,9 +44,6 @@ const Nav = () => {
                     </a>
                   </Link>
                 </div>
-                <button className="hover:underline" onClick={logout}>
-                  Sign Out
-                </button>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
@@ -67,6 +68,19 @@ const Nav = () => {
                     layout="fixed"
                     alt=""
                   /> */}
+                </div>
+                <div className="flex">
+                  {user && (
+                    <span className="text-white hover:bg-gray-700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium">
+                      {getEllipsesText(user?.get('ethAddress'))}
+                    </span>
+                  )}
+                  <button
+                    className="text-white hover:bg-gray-700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium"
+                    onClick={logout}
+                  >
+                    Sign Out
+                  </button>
                 </div>
               </div>
               <div className="-mr-2 flex md:hidden">
@@ -107,14 +121,14 @@ const Nav = () => {
                     alt=""
                   /> */}
                 </div>
-                <div className="ml-3">
+                {/* <div className="ml-3">
                   <div className="text-base font-medium leading-none text-white">
-                    {user?.get('ethAddress')}
+
                   </div>
                   <div className="text-sm font-medium leading-none text-gray-400">
-                    {/* {user.email} */}
+                  
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="mt-3 px-2 space-y-1">
                 {userNavigation.map((item) => (

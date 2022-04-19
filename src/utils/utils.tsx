@@ -9,3 +9,8 @@ export const toLocaleCamelCase = (str: string) => {
 
   return initial + rest;
 };
+
+export const getEllipsesText = (address: string) => {
+  return address.slice(0, 5) + '...' + address.slice(-4);
+  // TODO: check this
+};
