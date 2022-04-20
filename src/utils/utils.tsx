@@ -12,5 +12,4 @@ export const toLocaleCamelCase = (str: string) => {
 
 export const getEllipsesText = (address: string) => {
   return address.slice(0, 5) + '...' + address.slice(-4);
-  // TODO: check this
 };
