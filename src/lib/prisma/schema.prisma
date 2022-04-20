@@ -12,8 +12,8 @@ datasource db {
 model Page {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
-  language  Language     @default(EN)
-  page      PageType         @default(HOME)
+  language  Language @default(EN)
+  page      PageType @default(HOME)
   content   Json
 }
 

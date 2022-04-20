@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
+import { Content } from '../../../../../interfaces/page';
 
-const Nav = () => {
-  // const navigation = [
-  //   { name: 'Profile', href: '#' },
-  //   { name: 'Other', href: '#' },
-  // ];
+export interface Props {
+  data: Content['navbar'];
+}
+
+const Nav = ({ data }: Props) => {
   const { isAuthenticated, authenticate } = useMoralis();
   const router = useRouter();
 
@@ -26,7 +27,7 @@ const Nav = () => {
           authenticate({ signingMessage: 'Authorize linking of your wallet' })
         }
       >
-        Sign In
+        {data}
       </button>
     </nav>
   );
