@@ -1,11 +1,11 @@
-import { PrismaClient, Prisma, Language, Page } from '@prisma/client';
+import { PrismaClient, Prisma, Language, PageType } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const contentData: Prisma.ContentCreateInput[] = [
+const pageData: Prisma.PageCreateInput[] = [
   {
     language: Language.EN,
-    page: Page.HOME,
+    page: PageType.HOME,
     content: {
       navbar: 'Connect Wallet',
       main: {
@@ -20,7 +20,7 @@ const contentData: Prisma.ContentCreateInput[] = [
   },
   {
     language: Language.TR,
-    page: Page.HOME,
+    page: PageType.HOME,
     content: {
       navbar: 'Cüzdanı Bağla',
       main: {
@@ -38,11 +38,11 @@ const contentData: Prisma.ContentCreateInput[] = [
 
 async function main() {
   console.log(`Start seeding ...`);
-  for (const c of contentData) {
-    const content = await prisma.content.create({
-      data: c,
+  for (const p of pageData) {
+    const page = await prisma.page.create({
+      data: p,
     });
-    console.log(`Created content with id: ${content.id}`);
+    console.log(`Created content with id: ${page.id}`);
   }
   console.log(`Seeding finished.`);
 }

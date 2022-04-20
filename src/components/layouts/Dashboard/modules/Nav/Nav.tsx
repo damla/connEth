@@ -10,9 +10,9 @@ const Nav = () => {
   const { isAuthenticated, logout, user } = useMoralis();
   const router = useRouter();
 
-  if (user) {
-    console.log(getEllipsesText(user?.get('ethAddress')));
-  }
+  // if (user) {
+  //   console.log(getEllipsesText(user?.get('ethAddress')));
+  // }
 
   const navigation = [
     { name: '🧾 Transactions', href: '#' },

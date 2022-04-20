@@ -9,15 +9,15 @@ datasource db {
 }
 
 
-model Content {
+model Page {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
-  language  Language     @default(EN)
-  page      Page         @default(HOME)
+  language  Language @default(EN)
+  page      PageType @default(HOME)
   content   Json
 }
 
-enum Page {
+enum PageType {
   HOME
   DASHBOARD
 }
@@ -27,3 +27,14 @@ enum Language {
   TR
 }
 
+// generate prisma client according to schema directives
+// npx prisma generate --schema=./src/lib/prisma/schema.prisma
+
+// creating initial migration
+// npx prisma db push
+
+// seed data according to seed.js
+// npx prisma db seed
+
+// Open Prisma Studio
+// npx prisma studio

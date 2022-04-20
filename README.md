@@ -5,6 +5,7 @@
 - [Yarn](https://yarnpkg.com)
 - [NextJS](https://nextjs.org)
 - [TypeScript](https://www.typescriptlang.org)
+- [Prisma](https://www.prisma.io/)
 - [Moralis](https://moralis.io)
 - [Web3 Authentication via Metamask](https://metamask.io)
 - [tailwindcss](https://tailwindcss.com)

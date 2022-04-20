@@ -1,9 +1,7 @@
 import type { AppProps } from 'next/app';
 import 'tailwindcss/tailwind.css';
 import { MoralisProvider } from 'react-moralis';
-
-const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
-const APP_ID = process.env.NEXT_PUBLIC_APP_ID;
+import { APP_ID, SERVER_URL } from '../utils/constants';
 
 function MyApp({ Component, pageProps }: AppProps) {
   if (!APP_ID || !SERVER_URL)
