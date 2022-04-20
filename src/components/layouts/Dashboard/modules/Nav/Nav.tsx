@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
+import { Avatar } from 'web3uikit';
 import { getEllipsesText } from '../../../../../utils/utils';
 
 const Nav = () => {
@@ -59,21 +60,19 @@ const Nav = () => {
                 </div>
               </div>
               <div className="hidden md:block">
-                <div className="ml-4 flex items-center md:ml-6">
-                  {/* <Image
-                    height={32}
-                    width={32}
-                    className="h-8 w-8 rounded-full"
-                    src={user.imageUrl}
-                    layout="fixed"
-                    alt=""
-                  /> */}
-                </div>
+                <div className="ml-4 flex items-center md:ml-6"></div>
                 <div className="flex">
                   {user && (
-                    <span className="text-white hover:bg-gray-700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium">
-                      {getEllipsesText(user?.get('ethAddress'))}
-                    </span>
+                    <>
+                      <Avatar
+                        isRounded
+                        text={user?.get('ethAddress').slice(0, 2)}
+                        theme="letters"
+                      />
+                      <span className="text-white hover:bg-gray-700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium">
+                        {getEllipsesText(user?.get('ethAddress'))}
+                      </span>
+                    </>
                   )}
                   <button
                     className="text-white hover:bg-gray-700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium"
