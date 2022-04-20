@@ -44,7 +44,7 @@
   },
   "prisma": {
     "schema": "./src/lib/prisma/schema.prisma",
-    "seed": "ts-node -0 {\"module\":\"CommonJS\"} ./src/lib/prisma/seed.ts"
+    "seed": "ts-node -O {\"module\":\"CommonJS\"} ./src/lib/prisma/seed.ts"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
