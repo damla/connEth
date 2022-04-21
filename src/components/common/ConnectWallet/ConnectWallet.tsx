@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
+import { useError } from '../../../hooks/useError';
 import { classNames, getConnectWalletTexts } from '../../../utils/utils';
 import Icon, { Icons } from '../Icon/Icon';
 import Spinner from '../Spinner/Spinner';
@@ -12,6 +13,7 @@ interface Props {
 
 const ConnectWallet = ({ icon, defaultText }: Props) => {
   const { authenticate, isAuthenticated, isAuthenticating } = useMoralis();
+  const { addError, clearErrors } = useError();
 
   const router = useRouter();
   const currentLocale = router.locale || 'en';
@@ -28,12 +30,17 @@ const ConnectWallet = ({ icon, defaultText }: Props) => {
       await authenticate({ signingMessage: 'Log in using Moralis' })
         .then(function (user) {
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          console.log(user!.get('ethAddress'));
-          console.log('logged in user:', user);
+          if (!user) throw Error('User is null');
+          else {
+            console.log(user.get('ethAddress'));
+            clearErrors();
+            console.log('logged in user:', user);
+          }
         })
         .catch(function (err) {
           console.log(err);
           // TODO: error notification for non-wallet users
+          addError(err);
         });
     }
   };

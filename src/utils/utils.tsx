@@ -48,3 +48,24 @@ export const getConnectWalletTexts = (locale: string) => {
 
   return textValues;
 };
+
+export const getNotificationText = (locale: string) => {
+  let notification;
+
+  switch (locale) {
+    case Languages.ENGLISH:
+      notification =
+        'Please visit the website with an available Metamask Wallet';
+      break;
+    case Languages.TURKISH:
+      notification =
+        'Lütfen Metamask cüzdanınız ile beraber siteyi ziyaret edin';
+      break;
+    default:
+      notification =
+        'Please visit the website with an available Metamask Wallet';
+      break;
+  }
+
+  return notification;
+};
