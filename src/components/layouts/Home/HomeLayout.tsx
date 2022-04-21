@@ -19,7 +19,7 @@ const Landing = ({ children, data }: Props) => {
           content="NextJS starter created for developers"
         />
       </Head>
-      <div className="flex min-h-screen flex-col items-center justify-between bg-gradient-to-r from-green-400 to-[#2B85B0] md:bg-[url('https://moralis.io/wp-content/uploads/2021/06/blue-blob-background-2.svg')]">
+      <div className="flex min-h-screen flex-col items-center justify-between bg-gradient-to-r from-green-400 to-brand md:bg-[url('https://moralis.io/wp-content/uploads/2021/06/blue-blob-background-2.svg')]">
         <Nav />
         <Main>{children}</Main>
         <Footer data={footer} />
