@@ -4,16 +4,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
-import { Avatar } from 'web3uikit';
+import { Avatar, PopoverElement } from 'web3uikit';
 import { getEllipsesText } from '../../../../../utils/utils';
 
 const Nav = () => {
   const { isAuthenticated, logout, user } = useMoralis();
   const router = useRouter();
-
-  // if (user) {
-  //   console.log(getEllipsesText(user?.get('ethAddress')));
-  // }
 
   const navigation = [
     { name: '🧾 Transactions', href: '#' },
@@ -64,22 +60,29 @@ const Nav = () => {
                 <div className="flex">
                   {user && (
                     <>
-                      <Avatar
-                        isRounded
-                        text={user?.get('ethAddress').slice(0, 2)}
-                        theme="letters"
-                      />
-                      <span className="text-white hover:bg-gray-700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium">
-                        {getEllipsesText(user?.get('ethAddress'))}
-                      </span>
+                      <div className="flex text-white hover:bg-gray-700 hover:text-gray px-3 py-2 rounded-md items-center hover:cursor-default">
+                        <Avatar
+                          isRounded
+                          avatarKey={Math.floor(Math.random() * 100)}
+                          text={user?.get('ethAddress').slice(0, 2)}
+                          theme="letters"
+                        />
+                        <div className="flex flex-col justify-end">
+                          <span className="px-4 text-base font-medium inline-flex items-center">
+                            {getEllipsesText(user?.get('ethAddress'))}
+                          </span>
+                          <PopoverElement
+                            icon="logOut"
+                            iconColor="white"
+                            onClick={logout}
+                            text="Logout"
+                            textSize={13}
+                            textColor="white"
+                          />
+                        </div>
+                      </div>
                     </>
                   )}
-                  <button
-                    className="text-white hover:bg-gray-700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium"
-                    onClick={logout}
-                  >
-                    Sign Out
-                  </button>
                 </div>
               </div>
               <div className="-mr-2 flex md:hidden">
