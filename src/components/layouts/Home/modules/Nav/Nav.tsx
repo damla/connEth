@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
-import { Button } from 'web3uikit';
 // import { TIconType } from 'web3uikit/dist/components/Icon/collection';
 // import {
 //   IPosition,
@@ -61,7 +60,7 @@ const Nav = ({
       <span className="mb-3 sm:mb-0 text-gray-900 text-xl font-bold hover:cursor-default">
         NextJS Starter
       </span>
-      <Button
+      {/* <Button
         color="green"
         icon="eth"
         id="test-button-primary"
@@ -72,7 +71,7 @@ const Nav = ({
         text={text}
         theme="secondary"
         type="button"
-      />
+      /> */}
     </nav>
   );
 };

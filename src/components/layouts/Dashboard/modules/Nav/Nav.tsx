@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
-import { Avatar, PopoverElement } from 'web3uikit';
 import { getEllipsesText } from '../../../../../utils/utils';
 
 const Nav = () => {
@@ -61,24 +60,24 @@ const Nav = () => {
                   {user && (
                     <>
                       <div className="flex text-white hover:bg-gray-700 hover:text-gray px-3 py-2 rounded-md items-center hover:cursor-default">
-                        <Avatar
+                        {/* <Avatar
                           isRounded
                           avatarKey={Math.floor(Math.random() * 100)}
                           text={user?.get('ethAddress').slice(0, 2)}
                           theme="letters"
-                        />
+                        /> */}
                         <div className="flex flex-col justify-end">
                           <span className="px-4 text-base font-medium inline-flex items-center">
                             {getEllipsesText(user?.get('ethAddress'))}
                           </span>
-                          <PopoverElement
+                          {/* <PopoverElement
                             icon="logOut"
                             iconColor="white"
                             onClick={logout}
                             text="Logout"
                             textSize={13}
                             textColor="white"
-                          />
+                          /> */}
                         </div>
                       </div>
                     </>

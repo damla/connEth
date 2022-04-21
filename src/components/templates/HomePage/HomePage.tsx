@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
-import { Button, Hero } from 'web3uikit';
+// import { Button, Hero } from 'web3uikit';
 // import { TIconType } from 'web3uikit/dist/components/Icon/collection';
 // import {
 //   IPosition,
@@ -56,7 +56,7 @@ const HomePage = ({ data }: Props) => {
 
   return (
     <div className="min-w-full px-7 md:px-40 text-center p-3 flex items-center text-sm">
-      <Hero
+      {/* <Hero
         align="left"
         backgroundURL="https://moralis.io/wp-content/uploads/2021/06/blue-blob-background-2.svg"
         height="520px"
@@ -76,7 +76,7 @@ const HomePage = ({ data }: Props) => {
             type="button"
           />
         </div>
-      </Hero>
+      </Hero> */}
     </div>
   );
 };
