@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { APP_NAME } from '../../../utils/constants';
 import { Header, Main, Footer, Nav } from './modules';
 
 type Props = {
@@ -9,10 +10,10 @@ type Props = {
 const Dashboardlayout = ({ children, title }: Props) => (
   <>
     <Head>
-      <title>Create Next App | Dashboard</title>
+      <title>{APP_NAME} | Dashboard</title>
       <meta
         name="description"
-        content="NextJS starter created for developers"
+        content="ConnEth dashboard for using utilities"
       />
     </Head>
     <div className="min-h-full">

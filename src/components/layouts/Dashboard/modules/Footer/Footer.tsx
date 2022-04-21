@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { APP_NAME } from '../../../../../utils/constants';
 
 const Footer = () => (
   <footer className="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-gray-800">
@@ -6,7 +7,7 @@ const Footer = () => (
       <ul className="flex items-center mb-6 text-sm sm:mb-0">
         <Link href="/">
           <a className="text-xl font-semibold whitespace-nowrap dark:text-white">
-            NextJS Starter
+            {APP_NAME}
           </a>
         </Link>
       </ul>
@@ -37,7 +38,7 @@ const Footer = () => (
     <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
       © {new Date().getFullYear()}{' '}
       <Link href="/">
-        <a className="hover:underline">NextJS Starter</a>
+        <a className="hover:underline">{APP_NAME}</a>
       </Link>
       . All Rights Reserved.
     </span>
