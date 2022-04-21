@@ -1,7 +1,12 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
-import { Button } from 'web3uikit';
+import { Button, useNotification } from 'web3uikit';
+import { TIconType } from 'web3uikit/dist/components/Icon/collection';
+import {
+  IPosition,
+  notifyType,
+} from 'web3uikit/dist/components/Notification/types';
 import { INavbar } from '../../../../../interfaces/landing';
 
 export interface Props {
@@ -10,17 +15,32 @@ export interface Props {
 
 const Nav = ({
   data: {
+    error,
     walletBtn: { text, loading },
   },
 }: Props) => {
   const { authenticate, isAuthenticated, isAuthenticating } = useMoralis();
   const router = useRouter();
-  const [error, setError] = useState<Error | null>(null);
+  const dispatch = useNotification();
 
   useEffect(() => {
     if (isAuthenticated) router.replace('/dashboard');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
+
+  const handleNewNotification = (
+    type: notifyType,
+    icon?: TIconType,
+    position?: IPosition
+  ) => {
+    dispatch({
+      type,
+      message: error,
+      title: router.locale === 'en' ? 'Error' : 'Hata',
+      icon,
+      position: position || 'topL',
+    });
+  };
 
   const login = async () => {
     if (!isAuthenticated) {
@@ -30,36 +50,31 @@ const Nav = ({
           console.log(user!.get('ethAddress'));
           console.log('logged in user:', user);
         })
-        .catch(function (error) {
-          setError(error);
+        .catch(function (err) {
+          console.log(err);
+          handleNewNotification('info');
         });
     }
   };
 
   return (
-    <>
-      {error && (
-        <div className="px-7 text-center p-3 min-w-full flex items-center justify-center bg-gray-500 text-white shadow-sm text-sm md:text-md font-medium">
-          Please visit the website with an available Metamask Wallet
-        </div>
-      )}
-      <nav className="container flex min-w-full items-center justify-between p-7 md:px-40">
-        <span className=" text-gray-900 text-xl font-bold hover:cursor-default">
-          NextJS Starter
-        </span>
-        <Button
-          color="green"
-          icon="eth"
-          id="test-button-primary"
-          isLoading={isAuthenticating}
-          loadingText={loading}
-          onClick={login}
-          text={text}
-          theme="secondary"
-          type="button"
-        />
-      </nav>
-    </>
+    <nav className="container flex flex-wrap min-w-full items-center justify-between p-7 md:px-40">
+      <span className="mb-3 sm:mb-0 text-gray-900 text-xl font-bold hover:cursor-default">
+        NextJS Starter
+      </span>
+      <Button
+        color="green"
+        icon="eth"
+        id="test-button-primary"
+        isLoading={isAuthenticating}
+        loadingText={loading}
+        loadingProps={{ spinnerColor: '#ada9a9' }}
+        onClick={login}
+        text={text}
+        theme="secondary"
+        type="button"
+      />
+    </nav>
   );
 };
 
