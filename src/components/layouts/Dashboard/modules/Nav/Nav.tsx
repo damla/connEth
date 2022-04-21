@@ -67,7 +67,10 @@ const Nav = () => {
                           theme="letters"
                         /> */}
                         <div className="flex flex-col justify-end">
-                          <span className="px-4 text-base font-medium inline-flex items-center">
+                          <span
+                            onClick={logout}
+                            className="px-4 text-base font-medium inline-flex items-center"
+                          >
                             {getEllipsesText(user?.get('ethAddress'))}
                           </span>
                           {/* <PopoverElement

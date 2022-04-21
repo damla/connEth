@@ -14,10 +14,6 @@ interface Props {
 export default function Home({ data: { content } }: Props) {
   const memoContent = useMemo(() => content, [content]);
 
-  useEffect(() => {
-    console.log('Landing page is ready');
-  }, []);
-
   return (
     <HomeLayout data={memoContent}>
       <HomePage data={memoContent.main} />

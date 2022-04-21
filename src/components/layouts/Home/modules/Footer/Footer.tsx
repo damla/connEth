@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { IFooter } from '../../../../../interfaces/landing';
+import { APP_NAME } from '../../../../../utils/constants';
 
 interface Props {
   data: IFooter;
@@ -8,17 +9,9 @@ interface Props {
 const Footer = ({ data }: Props) => {
   const { rights } = data;
   return (
-    <footer className="flex h-24 w-full flex-col items-center justify-center border-t p-7 text-center text-xs font-medium tracking-tight text-gray-700 md:flex-row md:p-0 md:text-sm">
+    <footer className="flex h-24 w-full bg-white drop-shadow-2xl flex-col items-center justify-center p-7 text-center text-xs font-bold tracking-tight text-gray-800 md:flex-row md:p-0 md:text-sm cursor-default">
       <span>{rights}&nbsp; </span>
-      <span>2022 © NextJS Starter</span>
-
-      <Link href="/" locale="en">
-        <a className="pl-2">EN</a>
-      </Link>
-      <span> | </span>
-      <Link href="/" locale="tr">
-        <a>TR</a>
-      </Link>
+      <span>2022 © {APP_NAME}</span>
     </footer>
   );
 };
