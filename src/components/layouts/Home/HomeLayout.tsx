@@ -1,13 +1,15 @@
 import Head from 'next/head';
-import { Content } from '../../../interfaces/page';
+import { IContent } from '../../../interfaces/landing';
 import { Nav, Main, Footer } from './modules';
 
 interface Props {
   children: React.ReactNode;
-  data: Content;
+  data: IContent;
 }
 
-const Landing = ({ children, data: { navbar, footer } }: Props) => {
+const Landing = ({ children, data }: Props) => {
+  const { navbar, footer } = data;
+
   return (
     <>
       <Head>

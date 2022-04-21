@@ -1,8 +1,8 @@
 // import { useRouter } from 'next/router';
-import { Main } from '../../../interfaces/page';
+import { IMain } from '../../../interfaces/landing';
 
 interface Props {
-  data: Main;
+  data: IMain;
 }
 
 const HomePage = ({ data }: Props) => {

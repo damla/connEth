@@ -1,2 +1,2 @@
-export { default as Dashboard } from './Dashboard/Dashboard';
-export { default as Landing } from './Landing/Landing';
+export { default as DashboardLayout } from './Dashboard/DashboardLayout';
+export { default as HomeLayout } from './Home/HomeLayout';
