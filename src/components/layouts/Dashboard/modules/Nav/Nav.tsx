@@ -113,25 +113,7 @@ const Nav = () => {
               ))}
             </div>
             <div className="pt-4 pb-3 border-t border-gray-700">
-              <div className="flex items-center px-5">
-                <div className="flex-shrink-0">
-                  {/* <Image
-                    height={40}
-                    width={40}
-                    className="h-10 w-10 rounded-full"
-                    src={user.imageUrl}
-                    alt=""
-                  /> */}
-                </div>
-                {/* <div className="ml-3">
-                  <div className="text-base font-medium leading-none text-white">
-
-                  </div>
-                  <div className="text-sm font-medium leading-none text-gray-400">
-                  
-                  </div>
-                </div> */}
-              </div>
+              <div className="flex items-center px-5"></div>
               <div className="mt-3 px-2 space-y-1">
                 {userNavigation.map((item) => (
                   <Disclosure.Button

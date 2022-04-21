@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
-import { Button, useNotification } from 'web3uikit';
-import { TIconType } from 'web3uikit/dist/components/Icon/collection';
-import {
-  IPosition,
-  notifyType,
-} from 'web3uikit/dist/components/Notification/types';
+import { Button } from 'web3uikit';
+// import { TIconType } from 'web3uikit/dist/components/Icon/collection';
+// import {
+//   IPosition,
+//   notifyType,
+// } from 'web3uikit/dist/components/Notification/types';
 import { INavbar } from '../../../../../interfaces/landing';
 
 export interface Props {
@@ -15,32 +15,31 @@ export interface Props {
 
 const Nav = ({
   data: {
-    error,
     walletBtn: { text, loading },
   },
 }: Props) => {
   const { authenticate, isAuthenticated, isAuthenticating } = useMoralis();
   const router = useRouter();
-  const dispatch = useNotification();
+  // const dispatch = useNotification();
 
   useEffect(() => {
     if (isAuthenticated) router.replace('/dashboard');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
-  const handleNewNotification = (
-    type: notifyType,
-    icon?: TIconType,
-    position?: IPosition
-  ) => {
-    dispatch({
-      type,
-      message: error,
-      title: router.locale === 'en' ? 'Error' : 'Hata',
-      icon,
-      position: position || 'topL',
-    });
-  };
+  // const handleNewNotification = (
+  //   type: notifyType,
+  //   icon?: TIconType,
+  //   position?: IPosition
+  // ) => {
+  //   dispatch({
+  //     type,
+  //     message: error,
+  //     title: router.locale === 'en' ? 'Error' : 'Hata',
+  //     icon,
+  //     position: position || 'topL',
+  //   });
+  // };
 
   const login = async () => {
     if (!isAuthenticated) {
@@ -52,7 +51,7 @@ const Nav = ({
         })
         .catch(function (err) {
           console.log(err);
-          handleNewNotification('info');
+          // handleNewNotification('info');
         });
     }
   };
