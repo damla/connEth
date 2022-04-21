@@ -7,7 +7,12 @@ const pageData: Prisma.PageCreateInput[] = [
     language: Language.EN,
     page: PageType.HOME,
     content: {
-      navbar: 'Connect Wallet',
+      navbar: {
+        walletBtn: {
+          text: 'Connect Metamask Wallet',
+          loading: 'Connecting...',
+        },
+      },
       main: {
         title: 'Get in contact with your ETH chain!',
         subtitle:
@@ -22,7 +27,12 @@ const pageData: Prisma.PageCreateInput[] = [
     language: Language.TR,
     page: PageType.HOME,
     content: {
-      navbar: 'Cüzdanı Bağla',
+      navbar: {
+        walletBtn: {
+          text: 'Metamask Cüzdanı Bağla',
+          loading: 'Connecting...',
+        },
+      },
       main: {
         title: 'ETH zinciriniz ile iletişime geçin!',
         subtitle:
