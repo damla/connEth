@@ -3,7 +3,7 @@ type Props = {
 };
 
 const Main = ({ children }: Props) => (
-  <main className="min-w-full flex items-center justify-center">
+  <main className="min-w-full flex items-center justify-center min-h-full">
     {children}
   </main>
 );

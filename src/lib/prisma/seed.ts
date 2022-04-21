@@ -7,18 +7,18 @@ const pageData: Prisma.PageCreateInput[] = [
     language: Language.EN,
     page: PageType.HOME,
     content: {
+      // TODO: delete navbar if it is not used
       navbar: {
-        error: 'Please visit the website with an available Metamask Wallet',
-        walletBtn: {
-          text: 'Connect Metamask Wallet',
-          loading: 'Connecting...',
-        },
+        // error: 'Please visit the website with an available Metamask Wallet',
+        // walletBtn: {
+        //   text: 'Connect Metamask Wallet',
+        //   loading: 'Connecting...',
+        // },
       },
       main: {
-        title: 'List your transactions, send ETH and more!',
+        title: 'Ready to dive in?',
+        secondaryTitle: 'List your transactions, send ETH and more',
         connectBtn: 'Get in contact with the ETH chain!',
-        error: 'Please visit the website with an available Metamask Wallet',
-        loading: 'Connecting...',
       },
       footer: {
         rights: 'All Rights Reserved.',
@@ -30,17 +30,16 @@ const pageData: Prisma.PageCreateInput[] = [
     page: PageType.HOME,
     content: {
       navbar: {
-        walletBtn: {
-          error: 'Lütfen Metamask cüzdanınız ile beraber siteyi ziyaret edin',
-          text: 'Metamask Cüzdanı Bağla',
-          loading: 'Connecting...',
-        },
+        // error: 'Please visit the website with an available Metamask Wallet',
+        // walletBtn: {
+        //   text: 'Connect Metamask Wallet',
+        //   loading: 'Connecting...',
+        // },
       },
       main: {
-        title: 'İşlem listeleme, ETH gönderme ve daha fazlası!',
+        title: 'Hazır mısın?',
+        secondaryTitle: 'İşlem listeleme, ETH gönderme ve daha fazlası!',
         connectBtn: 'ETH zinciriniz ile iletişime geçin!',
-        error: 'Lütfen Metamask cüzdanınız ile beraber siteyi ziyaret edin',
-        loading: 'Bağlanıyor...',
       },
       footer: {
         rights: 'Tüm hakları saklıdır.',

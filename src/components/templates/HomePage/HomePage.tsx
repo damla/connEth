@@ -1,82 +1,29 @@
-// import { useRouter } from 'next/router';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useMoralis } from 'react-moralis';
-import { Button, Hero, useNotification } from 'web3uikit';
-import { TIconType } from 'web3uikit/dist/components/Icon/collection';
-import {
-  IPosition,
-  notifyType,
-} from 'web3uikit/dist/components/Notification/types';
 import { IMain } from '../../../interfaces/landing';
+import { ConnectWallet } from '../../common';
 
 interface Props {
   data: IMain;
 }
 
 const HomePage = ({ data }: Props) => {
-  const { title, connectBtn, loading, error } = data;
-  const { authenticate, isAuthenticated, isAuthenticating } = useMoralis();
-  const router = useRouter();
-  const dispatch = useNotification();
+  const { title, secondaryTitle, connectBtn } = data;
 
-  useEffect(() => {
-    if (isAuthenticated) router.replace('/dashboard');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
-
-  const handleNewNotification = (
-    type: notifyType,
-    icon?: TIconType,
-    position?: IPosition
-  ) => {
-    dispatch({
-      type,
-      message: error,
-      title: router.locale === 'en' ? 'Error' : 'Hata',
-      icon,
-      position: position || 'topL',
-    });
-  };
-
-  const login = async () => {
-    if (!isAuthenticated) {
-      await authenticate({ signingMessage: 'Log in using Moralis' })
-        .then(function (user) {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          console.log(user!.get('ethAddress'));
-          console.log('logged in user:', user);
-        })
-        .catch(function (err) {
-          console.log(err);
-          handleNewNotification('info');
-        });
-    }
-  };
+  // TODO: set error context for toast notification
+  // TODO: add missing components by using tailwindcss
 
   return (
-    <div className="min-w-full px-7 md:px-40 text-center p-3 flex items-center text-sm">
-      <Hero
-        align="left"
-        backgroundURL="https://moralis.io/wp-content/uploads/2021/06/blue-blob-background-2.svg"
-        height="520px"
-        rounded="20px"
-        textColor="#fff"
-        title={title}
-      >
-        <div>
-          <Button
-            icon="arrowCircleRight"
-            isLoading={isAuthenticating}
-            loadingText={loading}
-            onClick={login}
-            text={connectBtn}
-            theme="primary"
-            size="regular"
-            type="button"
-          />
+    <div className="md:bg-white min-h-full md:rounded-3xl md:shadow-lg min-w-fit">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <h2 className="text-3xl font-extrabold tracking-tight text-gray-800 sm:text-4xl pr-0 md:pr-5 cursor-default">
+          <span className="block">{title}</span>
+          <span className="block text-white md:text-[#2c80b0c0]">
+            {secondaryTitle}
+          </span>
+        </h2>
+        <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0 items-center">
+          <ConnectWallet defaultText={connectBtn} />
         </div>
-      </Hero>
+      </div>
     </div>
   );
 };

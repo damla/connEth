@@ -1,3 +1,4 @@
+// TODO: delete this if it is not used
 export interface INavbar {
   error: string;
   walletBtn: {
@@ -8,9 +9,8 @@ export interface INavbar {
 
 export interface IMain {
   title: string;
+  secondaryTitle: string;
   connectBtn: string;
-  error: string;
-  loading: string;
 }
 
 export interface IFooter {
