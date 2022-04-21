@@ -8,15 +8,17 @@ const pageData: Prisma.PageCreateInput[] = [
     page: PageType.HOME,
     content: {
       navbar: {
+        error: 'Please visit the website with an available Metamask Wallet',
         walletBtn: {
           text: 'Connect Metamask Wallet',
           loading: 'Connecting...',
         },
       },
       main: {
-        title: 'Get in contact with your ETH chain!',
-        subtitle:
-          'Connect your wallet to list your transactions, send ETH and more!',
+        title: 'List your transactions, send ETH and more!',
+        connectBtn: 'Get in contact with the ETH chain!',
+        error: 'Please visit the website with an available Metamask Wallet',
+        loading: 'Connecting...',
       },
       footer: {
         rights: 'All Rights Reserved.',
@@ -29,21 +31,22 @@ const pageData: Prisma.PageCreateInput[] = [
     content: {
       navbar: {
         walletBtn: {
+          error: 'Lütfen Metamask cüzdanınız ile beraber siteyi ziyaret edin',
           text: 'Metamask Cüzdanı Bağla',
           loading: 'Connecting...',
         },
       },
       main: {
-        title: 'ETH zinciriniz ile iletişime geçin!',
-        subtitle:
-          'İşlemlerinizi görüntülemek, ETH göndermek ve daha fazlası için cüzdanınızı bağlayın!',
+        title: 'İşlem listeleme, ETH gönderme ve daha fazlası!',
+        connectBtn: 'ETH zinciriniz ile iletişime geçin!',
+        error: 'Lütfen Metamask cüzdanınız ile beraber siteyi ziyaret edin',
+        loading: 'Bağlanıyor...',
       },
       footer: {
         rights: 'Tüm hakları saklıdır.',
       },
     },
   },
-  // TODO: add seed for dashboard etc.
 ];
 
 async function main() {

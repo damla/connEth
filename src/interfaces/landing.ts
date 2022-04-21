@@ -1,4 +1,5 @@
 export interface INavbar {
+  error: string;
   walletBtn: {
     text: string;
     loading: string;
@@ -7,7 +8,9 @@ export interface INavbar {
 
 export interface IMain {
   title: string;
-  subtitle: string;
+  connectBtn: string;
+  error: string;
+  loading: string;
 }
 
 export interface IFooter {
