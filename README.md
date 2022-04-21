@@ -1,4 +1,4 @@
-# NextJS Starter
+# ConnEth
 
 ## Technology Stack
 
@@ -58,4 +58,30 @@ if ! head -1 "$1" | grep -qE "^.{1,88}$"; then
     echo "Aborting commit. Your commit message is too long." >&2
     exit 1
 fi
+```
+
+## Installation
+
+```bash
+git clone git@github.com:damla/connEth.git
+
+cd connEth
+
+# Install node packages
+yarn
+
+# Note: Environment variables need to be added
+# before running
+
+# generate prisma client according to schema directives
+npx prisma generate --schema=./src/lib/prisma/schema.prisma
+
+# create initial migration
+npx prisma db push
+
+# seed data according to seed.ts
+npx prisma db seed
+
+# Run
+yarn dev
 ```
