@@ -6,7 +6,7 @@ type Props = {
   title: string;
 };
 
-const Dashboard = ({ children, title }: Props) => (
+const Dashboardlayout = ({ children, title }: Props) => (
   <>
     <Head>
       <title>Create Next App | Dashboard</title>
@@ -24,4 +24,4 @@ const Dashboard = ({ children, title }: Props) => (
   </>
 );
 
-export default Dashboard;
+export default Dashboardlayout;

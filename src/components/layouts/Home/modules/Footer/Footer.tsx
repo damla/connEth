@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Footer } from '../../../../../interfaces/page';
+import { IFooter } from '../../../../../interfaces/landing';
 
 interface Props {
-  data: Footer;
+  data: IFooter;
 }
 
 const Footer = ({ data }: Props) => {

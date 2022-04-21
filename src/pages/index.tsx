@@ -1,21 +1,22 @@
 import { Language, PageType } from '@prisma/client';
 import { useMemo } from 'react';
-import { Landing } from '../components/layouts';
+import { HomeLayout } from '../components/layouts';
 import { HomePage } from '../components/templates';
-import { Content } from '../interfaces/page';
+import { IContent } from '../interfaces/landing';
 import { prisma } from '../lib/prisma/prisma';
+
 interface Props {
   data: {
-    content: Content;
+    content: IContent;
   };
 }
 
 export default function Home({ data: { content } }: Props) {
   const memoContent = useMemo(() => content, [content]);
   return (
-    <Landing data={memoContent}>
+    <HomeLayout data={memoContent}>
       <HomePage data={memoContent.main} />
-    </Landing>
+    </HomeLayout>
   );
 }
 

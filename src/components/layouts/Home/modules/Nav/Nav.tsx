@@ -1,21 +1,24 @@
-// import { useRouter } from 'next/router';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
-import { Button, Hero, useNotification } from 'web3uikit';
+import { Button, useNotification } from 'web3uikit';
 import { TIconType } from 'web3uikit/dist/components/Icon/collection';
 import {
   IPosition,
   notifyType,
 } from 'web3uikit/dist/components/Notification/types';
-import { IMain } from '../../../interfaces/landing';
+import { INavbar } from '../../../../../interfaces/landing';
 
-interface Props {
-  data: IMain;
+export interface Props {
+  data: INavbar;
 }
 
-const HomePage = ({ data }: Props) => {
-  const { title, connectBtn, loading, error } = data;
+const Nav = ({
+  data: {
+    error,
+    walletBtn: { text, loading },
+  },
+}: Props) => {
   const { authenticate, isAuthenticated, isAuthenticating } = useMoralis();
   const router = useRouter();
   const dispatch = useNotification();
@@ -55,29 +58,24 @@ const HomePage = ({ data }: Props) => {
   };
 
   return (
-    <div className="min-w-full px-7 md:px-40 text-center p-3 flex items-center text-sm">
-      <Hero
-        align="left"
-        backgroundURL="https://moralis.io/wp-content/uploads/2021/06/blue-blob-background-2.svg"
-        height="520px"
-        rounded="20px"
-        textColor="#fff"
-        title={title}
-      >
-        <div>
-          <Button
-            icon="arrowCircleRight"
-            isLoading={isAuthenticating}
-            loadingText={loading}
-            onClick={login}
-            text={connectBtn}
-            theme="primary"
-            size="regular"
-            type="button"
-          />
-        </div>
-      </Hero>
-    </div>
+    <nav className="container flex flex-wrap min-w-full items-center justify-between p-7 md:px-40">
+      <span className="mb-3 sm:mb-0 text-gray-900 text-xl font-bold hover:cursor-default">
+        NextJS Starter
+      </span>
+      <Button
+        color="green"
+        icon="eth"
+        id="test-button-primary"
+        isLoading={isAuthenticating}
+        loadingText={loading}
+        loadingProps={{ spinnerColor: '#ada9a9' }}
+        onClick={login}
+        text={text}
+        theme="secondary"
+        type="button"
+      />
+    </nav>
   );
 };
-export default HomePage;
+
+export default Nav;
