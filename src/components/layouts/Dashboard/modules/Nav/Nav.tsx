@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
+import { APP_NAME } from '../../../../../utils/constants';
 import { getEllipsesText } from '../../../../../utils/utils';
 
 const Nav = () => {
@@ -36,7 +37,7 @@ const Nav = () => {
                 <div className="flex-shrink-0">
                   <Link href="/">
                     <a className="hover:cursor-pointer hover:text-gray-300 text-white text-xl font-bold">
-                      NextJS Starter
+                      {APP_NAME}
                     </a>
                   </Link>
                 </div>
