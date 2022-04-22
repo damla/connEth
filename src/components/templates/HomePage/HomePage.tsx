@@ -8,9 +8,6 @@ interface Props {
 const HomePage = ({ data }: Props) => {
   const { title, secondaryTitle, connectBtn } = data;
 
-  // TODO: set error context for toast notification
-  // TODO: add missing components by using tailwindcss
-
   return (
     <div className="md:bg-white min-h-full md:rounded-3xl md:shadow-lg min-w-fit">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:py-16 md:px-8 md:flex md:flex-col md:items-center md:justify-between">
