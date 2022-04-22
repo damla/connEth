@@ -31,14 +31,3 @@ const Landing = ({ children, data }: Props) => {
   );
 };
 export default Landing;
-
-// TODO: ADD LANGUAGE SELECTOR
-{
-  /* <Link href="/" locale="en">
-        <a className="pl-2">EN</a>
-      </Link>
-      <span> | </span>
-      <Link href="/" locale="tr">
-        <a>TR</a>
-      </Link> */
-}
