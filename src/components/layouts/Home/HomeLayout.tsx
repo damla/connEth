@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { IFooter } from '../../../interfaces/landing';
-import { APP_NAME } from '../../../utils/constants';
 import { Notification } from '../../common';
 import { Nav, Main, Footer } from './modules';
 
@@ -13,7 +12,7 @@ const Landing = ({ children, data }: Props) => {
   return (
     <>
       <Head>
-        <title>{APP_NAME} | Home</title>
+        <title>ConnEth | Home</title>
         <meta
           name="description"
           content="ConnEth is a dApp, developed for keeping track of the ETH blockchain network."
