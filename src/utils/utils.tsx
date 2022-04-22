@@ -1,3 +1,5 @@
+import { LANGUAGES_DATA } from './constants';
+
 // merge conditional classes in styling
 export const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ');
@@ -68,4 +70,12 @@ export const getNotificationText = (locale: string) => {
   }
 
   return notification;
+};
+
+export const getLabel = (currentLocale: string) => {
+  if (currentLocale === 'en') {
+    return LANGUAGES_DATA.filter((l) => l.value === currentLocale)[0].label.en;
+  } else {
+    return LANGUAGES_DATA.filter((l) => l.value === currentLocale)[0].label.tr;
+  }
 };
