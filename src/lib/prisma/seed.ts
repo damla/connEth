@@ -7,14 +7,6 @@ const pageData: Prisma.PageCreateInput[] = [
     language: Language.EN,
     page: PageType.HOME,
     content: {
-      // TODO: delete navbar if it is not used
-      navbar: {
-        // error: 'Please visit the website with an available Metamask Wallet',
-        // walletBtn: {
-        //   text: 'Connect Metamask Wallet',
-        //   loading: 'Connecting...',
-        // },
-      },
       main: {
         title: 'Ready to dive in?',
         secondaryTitle: 'List your transactions, send ETH and more',
@@ -29,13 +21,6 @@ const pageData: Prisma.PageCreateInput[] = [
     language: Language.TR,
     page: PageType.HOME,
     content: {
-      navbar: {
-        // error: 'Please visit the website with an available Metamask Wallet',
-        // walletBtn: {
-        //   text: 'Connect Metamask Wallet',
-        //   loading: 'Connecting...',
-        // },
-      },
       main: {
         title: 'Hazır mısın?',
         secondaryTitle: 'İşlem listeleme, ETH gönderme ve daha fazlası!',

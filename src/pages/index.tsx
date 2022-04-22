@@ -1,5 +1,5 @@
 import { Language, PageType } from '@prisma/client';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { HomeLayout } from '../components/layouts';
 import { HomePage } from '../components/templates';
 import { IContent } from '../interfaces/landing';
@@ -15,7 +15,7 @@ export default function Home({ data: { content } }: Props) {
   const memoContent = useMemo(() => content, [content]);
 
   return (
-    <HomeLayout data={memoContent}>
+    <HomeLayout data={memoContent.footer}>
       <HomePage data={memoContent.main} />
     </HomeLayout>
   );
