@@ -33,7 +33,7 @@ const LanguageSelector = () => {
               <Menu.Item>
                 <Link href="/" locale="en">
                   <a className="font-bold hover:bg-cyan-500 active:bg-cyan-500 hover:text-white text-gray-900 group flex rounded-md items-center w-full px-2 py-2 text-sm">
-                    🇺🇸 EN
+                    🇬🇧 EN
                   </a>
                 </Link>
               </Menu.Item>
