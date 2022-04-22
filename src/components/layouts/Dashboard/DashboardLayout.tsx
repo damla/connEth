@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { APP_NAME } from '../../../utils/constants';
 import { Header, Main, Footer, Nav } from './modules';
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
 const Dashboardlayout = ({ children, title }: Props) => (
   <>
     <Head>
-      <title>{APP_NAME} | Dashboard</title>
+      <title>ConnEth | Dashboard</title>
       <meta
         name="description"
         content="ConnEth dashboard for using utilities"
