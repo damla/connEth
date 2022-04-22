@@ -16,9 +16,11 @@ const Dashboardlayout = ({ children, title }: Props) => (
         content="ConnEth dashboard for using utilities"
       />
     </Head>
-    <div className="min-h-full">
-      <Nav />
-      <Header title={title} />
+    <div className="min-h-screen flex flex-col justify-between">
+      <div>
+        <Nav />
+        <Header title={title} />
+      </div>
       <Main>{children}</Main>
       <Footer />
     </div>

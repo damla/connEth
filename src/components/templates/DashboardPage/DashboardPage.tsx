@@ -1,6 +1,6 @@
 import { PaperClipIcon } from '@heroicons/react/outline';
 
-const ProfilePage = () => {
+const DashboardPage = () => {
   return (
     <div className="min-h-full">
       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -109,4 +109,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default DashboardPage;
