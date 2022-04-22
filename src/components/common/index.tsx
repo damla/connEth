@@ -3,3 +3,4 @@ export { default as Spinner } from './Spinner/Spinner';
 export { default as ConnectWallet } from './ConnectWallet/ConnectWallet';
 export { default as Notification } from './Notification/Notification';
 export { default as LanguageSelector } from './LanguageSelector/LanguageSelector';
+export { default as MyLink } from './MyLink/MyLink';
