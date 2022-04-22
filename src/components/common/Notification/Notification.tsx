@@ -21,9 +21,10 @@ const Notification = () => {
   return (
     <div
       id="toast-warning"
-      className={`absolute transition-all ease-out scale-0 duration-500 right-5 top-5 items-center shadow-md w-full max-w-xs p-4 text-gray-500 bg-slate-100 rounded-lg dark:text-gray-400 dark:bg-gray-800 ${
-        isVisible &&
-        classNames('flex transition-all ease-in scale-100 duration-500')
+      className={`absolute flex right-5 top-5 items-center shadow-md w-full max-w-xs p-4 text-gray-500 bg-slate-100 rounded-lg dark:text-gray-400 dark:bg-gray-800 ${
+        isVisible
+          ? classNames('transition-all ease-in scale-100 duration-300')
+          : 'transition-transform ease-out scale-0 duration-300'
       }`}
       role="alert"
     >
