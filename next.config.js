@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   i18n: {
     // These are all the locales you want to support in
     // your application
@@ -10,7 +10,7 @@ const nextConfig = {
     defaultLocale: 'en',
   },
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com', 'avatars.githubusercontent.com'],
   },
 };
 

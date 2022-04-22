@@ -39,7 +39,6 @@ const ConnectWallet = ({ icon, defaultText }: Props) => {
         })
         .catch(function (err) {
           console.log(err);
-          // TODO: error notification for non-wallet users
           addError(err);
         });
     }

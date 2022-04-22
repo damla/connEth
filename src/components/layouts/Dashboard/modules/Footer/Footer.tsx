@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import { APP_NAME } from '../../../../../utils/constants';
+import Icon, { Icons } from '../../../../common/Icon/Icon';
 
 const Footer = () => (
   <footer className="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-gray-800">
     <div className="sm:flex sm:items-center sm:justify-between">
       <ul className="flex items-center mb-6 text-sm sm:mb-0">
         <Link href="/">
-          <a className="text-xl font-semibold whitespace-nowrap dark:text-white">
+          <a className="hover:cursor-pointer inline-flex sm:mb-0 text-gray-800 hover:opacity-80 text-xl font-bold items-center">
+            <Icon icon={Icons.ETHEREUM} alt="ethereum" />
             {APP_NAME}
           </a>
         </Link>
