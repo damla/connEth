@@ -1,4 +1,5 @@
 import Head from 'next/head';
+
 import { Main, Footer, Nav } from './modules';
 
 type Props = {
