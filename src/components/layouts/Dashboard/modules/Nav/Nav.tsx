@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo } from 'react';
 import { useMoralis } from 'react-moralis';
+import { useEthBalance } from '../../../../../hooks/useEthBalance';
 import { APP_NAME } from '../../../../../utils/constants';
 import { getEllipsesText } from '../../../../../utils/utils';
 import { Icon } from '../../../../common';
@@ -12,6 +13,7 @@ import { Icons } from '../../../../common/Icon/Icon';
 
 const Nav = () => {
   const { isAuthenticated, logout, user } = useMoralis();
+  const { formattedBalance, loading } = useEthBalance();
   const router = useRouter();
   const ethAddress = user?.get('ethAddress');
 
@@ -20,6 +22,7 @@ const Nav = () => {
     { name: '💰 Balance', href: '#' },
   ];
 
+  // TODO: implement menu
   // const userNavigation = [
   //   // { name: 'Your Profile', href: '#' },
   //   { name: user && getEllipsesText(user?.get('ethAddress')), href: '#' },
@@ -51,6 +54,7 @@ const Nav = () => {
                     </a>
                   </Link>
                 </div>
+                {!loading && formattedBalance}
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
@@ -122,7 +126,7 @@ const Nav = () => {
               <div className="flex items-center px-5"></div>
               <div className="mt-3 px-2 space-y-1">
                 <Disclosure.Button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-600">
-                  {/* {getEllipsesText(user?.get('ethAddress'))} */} coz burayi
+                  {user && getEllipsesText(user?.get('ethAddress'))}
                 </Disclosure.Button>
               </div>
             </div>
