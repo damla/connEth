@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { LogoutIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useMoralis } from 'react-moralis';
 import { APP_NAME } from '../../../../../utils/constants';
 import { getEllipsesText } from '../../../../../utils/utils';
@@ -13,6 +13,7 @@ import { Icons } from '../../../../common/Icon/Icon';
 const Nav = () => {
   const { isAuthenticated, logout, user } = useMoralis();
   const router = useRouter();
+  const ethAddress = user?.get('ethAddress');
 
   const navigation = [
     { name: '🧾 Transactions', href: '#' },
@@ -29,6 +30,11 @@ const Nav = () => {
     if (!isAuthenticated) router.replace('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
+
+  const ellipsedUserName = useMemo(
+    () => ethAddress && getEllipsesText(ethAddress),
+    [ethAddress]
+  );
 
   return (
     <Disclosure as="nav" className="bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -77,7 +83,7 @@ const Nav = () => {
                       />
                       <div className="flex items-center">
                         <span className="px-4 text-sm font-medium inline-flex items-center">
-                          {getEllipsesText(user?.get('ethAddress'))}
+                          {ellipsedUserName}
                         </span>
                         <LogoutIcon className="w-6 h-6 text-white" />
                       </div>
