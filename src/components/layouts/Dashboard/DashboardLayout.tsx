@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import { Header, Main, Footer, Nav } from './modules';
+import { Main, Footer, Nav } from './modules';
 
 type Props = {
   children: React.ReactNode;
   title: string;
 };
 
-const Dashboardlayout = ({ children, title }: Props) => (
+const Dashboardlayout = ({ children }: Props) => (
   <>
     <Head>
       <title>ConnEth | Dashboard</title>
@@ -16,10 +16,7 @@ const Dashboardlayout = ({ children, title }: Props) => (
       />
     </Head>
     <div className="min-h-screen flex flex-col justify-between">
-      <div>
-        <Nav />
-        <Header title={title} />
-      </div>
+      <Nav />
       <Main>{children}</Main>
       <Footer />
     </div>

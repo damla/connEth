@@ -9,7 +9,6 @@ export const useEthBalance = () => {
   const [loading, setLoading] = useState(true);
   const [balance, setBalance] = useState('');
   const ethAddress: string = user?.get('ethAddress') || '';
-  balance;
 
   const eth = useMemo(() => {
     const chainData = getChain('0x4');

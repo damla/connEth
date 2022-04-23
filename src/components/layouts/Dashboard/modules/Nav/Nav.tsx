@@ -39,8 +39,12 @@ const Nav = () => {
     [ethAddress]
   );
 
+  // TODO: divide this component into pieces to decrease LPC
   return (
-    <Disclosure as="nav" className="bg-gradient-to-r from-cyan-500 to-blue-500">
+    <Disclosure
+      as="nav"
+      className="shadow-lg bg-gradient-to-r from-cyan-500 to-blue-500"
+    >
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
