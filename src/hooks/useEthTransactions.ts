@@ -24,7 +24,7 @@ export const useEthTransactions = ({ offset = 0 }: Props) => {
               chain: 'rinkeby',
               address: ethAddress,
               offset: offset || 0, // offset is used for pagination
-              limit: 10, // 10 transactions per page
+              limit: 5, // 5 transactions per page
             });
           setTransactions(ethTransactions);
         } catch (error) {

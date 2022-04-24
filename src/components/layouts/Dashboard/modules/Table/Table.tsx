@@ -28,8 +28,7 @@ const Table = ({ data }: Props) => {
                 {col4}
               </th>
               <th scope="col" className="px-6 py-3">
-                {/* TODO: LOCALIZE HERE */}
-                <span className="sr-only">View More</span>
+                <span className="sr-only">More Information</span>
               </th>
             </tr>
           </thead>
