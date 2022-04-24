@@ -3,8 +3,9 @@ import Image from 'next/image';
 import { LogoutIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useMoralis } from 'react-moralis';
+import { useEthBalance } from '../../../../../hooks/useEthBalance';
 import { APP_NAME } from '../../../../../utils/constants';
 import { getEllipsesText } from '../../../../../utils/utils';
 import { Icon } from '../../../../common';
@@ -12,13 +13,16 @@ import { Icons } from '../../../../common/Icon/Icon';
 
 const Nav = () => {
   const { isAuthenticated, logout, user } = useMoralis();
+  const { formattedBalance, loading } = useEthBalance();
   const router = useRouter();
+  const ethAddress = user?.get('ethAddress');
 
   const navigation = [
     { name: '🧾 Transactions', href: '#' },
     { name: '💰 Balance', href: '#' },
   ];
 
+  // TODO: implement menu
   // const userNavigation = [
   //   // { name: 'Your Profile', href: '#' },
   //   { name: user && getEllipsesText(user?.get('ethAddress')), href: '#' },
@@ -30,8 +34,17 @@ const Nav = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
+  const ellipsedUserName = useMemo(
+    () => ethAddress && getEllipsesText(ethAddress),
+    [ethAddress]
+  );
+
+  // TODO: divide this component into pieces to decrease LPC
   return (
-    <Disclosure as="nav" className="bg-gradient-to-r from-cyan-500 to-blue-500">
+    <Disclosure
+      as="nav"
+      className="shadow-lg bg-gradient-to-r from-cyan-500 to-blue-500"
+    >
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,6 +58,7 @@ const Nav = () => {
                     </a>
                   </Link>
                 </div>
+                {!loading && formattedBalance}
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
@@ -77,7 +91,7 @@ const Nav = () => {
                       />
                       <div className="flex items-center">
                         <span className="px-4 text-sm font-medium inline-flex items-center">
-                          {getEllipsesText(user?.get('ethAddress'))}
+                          {ellipsedUserName}
                         </span>
                         <LogoutIcon className="w-6 h-6 text-white" />
                       </div>
@@ -116,7 +130,7 @@ const Nav = () => {
               <div className="flex items-center px-5"></div>
               <div className="mt-3 px-2 space-y-1">
                 <Disclosure.Button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-600">
-                  {/* {getEllipsesText(user?.get('ethAddress'))} */} coz burayi
+                  {user && getEllipsesText(user?.get('ethAddress'))}
                 </Disclosure.Button>
               </div>
             </div>

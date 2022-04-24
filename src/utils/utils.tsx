@@ -1,21 +1,10 @@
+// TODO: refactor this file
+
 import { LANGUAGES_DATA } from './constants';
 
 // merge conditional classes in styling
 export const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ');
-};
-
-// format string to camel case
-export const toLocaleCamelCase = (str: string) => {
-  const initial = str.slice(0, 1).toLocaleUpperCase();
-  const rest = str.slice(1).toLocaleLowerCase();
-
-  return initial + rest;
-};
-
-// shorten full hash value
-export const getEllipsesText = (address: string) => {
-  return address.slice(0, 5) + '...' + address.slice(-4);
 };
 
 // common content according to language selected
@@ -78,4 +67,40 @@ export const getLabel = (currentLocale: string) => {
   } else {
     return LANGUAGES_DATA.filter((l) => l.value === currentLocale)[0].label.tr;
   }
+};
+
+export const decimalFormatter = new Intl.NumberFormat('en-us', {
+  style: 'decimal',
+  minimumSignificantDigits: 1,
+  maximumSignificantDigits: 4,
+});
+
+export const limitDecimals = (value: number) => decimalFormatter.format(value);
+
+export const tokenValue = (value: number, decimals: number) =>
+  value / Math.pow(10, decimals);
+
+export const tokenValueTxt = (
+  value: number | string,
+  decimals: number,
+  symbol: string
+) => {
+  if (typeof value === 'number') {
+    return `${limitDecimals(tokenValue(value, decimals))} ${symbol}`;
+  }
+  // TODO: handle as BN
+  return `${limitDecimals(tokenValue(Number(value), decimals))} ${symbol}`;
+};
+
+// shorten full hash value
+export const getEllipsesText = (address: string) => {
+  return address.slice(0, 5) + '...' + address.slice(-4);
+};
+
+// format string to camel case
+export const toLocaleCamelCase = (str: string) => {
+  const initial = str.slice(0, 1).toLocaleUpperCase();
+  const rest = str.slice(1).toLocaleLowerCase();
+
+  return initial + rest;
 };
