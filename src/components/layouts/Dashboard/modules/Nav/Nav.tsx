@@ -6,6 +6,7 @@ import { getEllipsesText } from '../../../../../utils/utils';
 import MobileMenu from './MobileMenu/MobileMenu';
 import DesktopMenu from './DesktopMenu/DesktopMenu';
 import { INavbar } from '../../../../../interfaces/pages/dashboard';
+import { RINKEBY_URL } from '../../../../../utils/constants';
 
 interface Props {
   data: INavbar;
@@ -19,7 +20,7 @@ const Nav = ({ data }: Props) => {
   const infoBar = [
     {
       name: `💰 ${balance}: ${loading ? balanceLoading : formattedBalance}`,
-      href: `https://rinkeby.etherscan.io/address/${ethAddress}`,
+      href: `${RINKEBY_URL}${ethAddress}`,
       type: 'balance',
     },
   ];

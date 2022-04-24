@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { getChain } from 'react-moralis';
 import { Transaction } from '../../../../../../interfaces/transactions';
+import { RINKEBY_URL } from '../../../../../../utils/constants';
 import { tokenValueTxt } from '../../../../../../utils/utils';
 
 interface Props {
@@ -32,7 +33,7 @@ const TableRow = ({ transaction, address }: Props) => {
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-500 hover:underline"
-          href={`https://rinkeby.etherscan.io/address/${transaction.from_address}`}
+          href={`${RINKEBY_URL}${transaction.from_address}`}
         >
           {transaction.from_address}
         </a>
@@ -42,7 +43,7 @@ const TableRow = ({ transaction, address }: Props) => {
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-500 hover:underline"
-          href={`https://rinkeby.etherscan.io/address/${transaction.to_address}`}
+          href={`${RINKEBY_URL}${transaction.to_address}`}
         >
           {transaction.to_address}
         </a>
@@ -58,7 +59,7 @@ const TableRow = ({ transaction, address }: Props) => {
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-500 hover:underline"
-          href={`https://rinkeby.etherscan.io/address/${address}`}
+          href={`${RINKEBY_URL}${address}`}
         >
           {locale === 'en' ? 'more information' : 'daha fazla bilgi'}
         </a>
