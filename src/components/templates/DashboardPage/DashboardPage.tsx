@@ -1,18 +1,19 @@
 import { Header } from '../../layouts/Dashboard/modules';
 import { Table } from '../../layouts/Dashboard/modules/Table';
+import { ITable } from '../../../interfaces/pages/dashboard';
 
-// interface Transactions {
-//   total: number;
-//   page: number;
-//   page_size: number;
-//   result: [];
-// }
+interface Props {
+  data: {
+    title: string;
+    table: ITable;
+  };
+}
 
-const DashboardPage = () => {
+const DashboardPage = ({ data: { title, table } }: Props) => {
   return (
     <>
-      <Header title="dashboard" />
-      <Table />
+      <Header title={title} />
+      <Table data={table} />
     </>
   );
 };

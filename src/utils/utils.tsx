@@ -88,7 +88,7 @@ export const tokenValueTxt = (
   if (typeof value === 'number') {
     return `${limitDecimals(tokenValue(value, decimals))} ${symbol}`;
   }
-  // TODO: handle as BN
+
   return `${limitDecimals(tokenValue(Number(value), decimals))} ${symbol}`;
 };
 
