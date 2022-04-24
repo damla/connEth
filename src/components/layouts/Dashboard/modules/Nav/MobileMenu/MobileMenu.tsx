@@ -22,6 +22,8 @@ function MobileMenu({ userName, infoBar }: Props) {
             key={item.name}
             as="a"
             href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             {item.name}

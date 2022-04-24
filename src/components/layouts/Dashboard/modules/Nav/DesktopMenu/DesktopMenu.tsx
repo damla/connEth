@@ -37,6 +37,8 @@ function MobileMenu({ open, userName, infoBar }: Props) {
                 <a
                   key={item.name}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-lime-400 text-green-800 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   {item.name}
