@@ -45,7 +45,7 @@ export const useEthBalance = () => {
   const formattedBalance = useMemo(() => {
     if (!Web3Api || !ethAddress || !eth) return null;
 
-    return tokenValueTxt(balance, eth.decimals, eth.symbol);
+    return tokenValueTxt(balance, eth.decimals, 'ETH');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [balance, eth]);
 
