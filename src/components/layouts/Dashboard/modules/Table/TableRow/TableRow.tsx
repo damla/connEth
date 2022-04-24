@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { getChain } from 'react-moralis';
 import { Transaction } from '../../../../../../interfaces/transactions';
@@ -5,10 +6,10 @@ import { tokenValueTxt } from '../../../../../../utils/utils';
 
 interface Props {
   transaction: Transaction;
-  isLoading: boolean;
 }
 
-const TableRow = ({ transaction, isLoading }: Props) => {
+const TableRow = ({ transaction }: Props) => {
+  const { locale } = useRouter();
   const eth = useMemo(() => {
     const chainData = getChain('0x4');
 
@@ -20,33 +21,36 @@ const TableRow = ({ transaction, isLoading }: Props) => {
   }, []);
 
   return (
-    <tr className="bg-green-50 border-b dark:bg-cyan-800 dark:border-cyan-700 hover:bg-green-100 dark:hover:bg-cyan-600">
-      <th
+    <tr className="bg-white border-b dark:bg-cyan-800 dark:border-cyan-700 hover:bg-green-50 dark:hover:bg-cyan-600">
+      <td
         scope="row"
-        className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+        className="px-5 py-4 text-gray-900 dark:text-white whitespace-nowrap"
       >
-        {isLoading ? 'Loading...' : transaction.from_address}
-      </th>
-      <td className="px-6 py-4">{transaction.to_address}</td>
-      <td className="px-6 py-4">
-        {isLoading ? 'Loading...' : transaction.block_timestamp}
-      </td>
-      <td className="px-6 py-4">
-        {isLoading
-          ? 'Loading...'
-          : tokenValueTxt(
-              transaction.value,
-              eth ? eth.decimals : 10,
-              eth ? eth.symbol : 'ETH'
-            )}
-      </td>
-      <td className="px-6 py-4 text-right">
         <a
-          href="#"
-          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-500 hover:underline"
+          href={`https://rinkeby.etherscan.io/address/${transaction.from_address}`}
         >
-          Edit
+          {transaction.from_address}
         </a>
+      </td>
+      <td className="px-5 py-4">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-500 hover:underline"
+          href={`https://rinkeby.etherscan.io/address/${transaction.from_address}`}
+        >
+          {transaction.to_address}
+        </a>
+      </td>
+      <td className="px-5 py-4">
+        {new Date(transaction.block_timestamp).toLocaleString(locale)}
+      </td>
+      <td className="px-5 py-4">
+        {/* TODO: memoize this */}
+        {tokenValueTxt(transaction.value, eth ? eth.decimals : 10, 'ETH')}
       </td>
     </tr>
   );
