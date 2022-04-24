@@ -43,6 +43,7 @@ export const useEthTransactions = ({ offset = 0 }: Props) => {
   }, [fetchEthTransaction]);
 
   return {
+    ethAddress,
     transactions,
     isLoading,
     offset,

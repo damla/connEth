@@ -19,13 +19,14 @@ const Table = () => (
             <th scope="col" className="px-6 py-3">
               VALUE
             </th>
-            {/* <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-3">
               <span className="sr-only">View More</span>
-            </th> */}
+            </th>
           </tr>
         </thead>
         {/* TODO: pagination */}
         <TableBody offset={0} />
+        {/* offset: 0 - 10 - 20 */}
       </table>
     </div>
   </div>
