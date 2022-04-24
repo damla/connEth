@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { IFooter } from '../../../interfaces/landing';
+import { IFooter } from '../../../interfaces/pages/landing';
 import { Notification } from '../../common';
 import { Nav, Main, Footer } from './modules';
 

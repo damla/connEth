@@ -1,4 +1,4 @@
-import { IMain } from '../../../interfaces/landing';
+import { IMain } from '../../../interfaces/pages/landing';
 import { ConnectWallet } from '../../common';
 
 interface Props {

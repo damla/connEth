@@ -2,7 +2,7 @@ import { Language, PageType } from '@prisma/client';
 import { useMemo } from 'react';
 import { HomeLayout } from '../components/layouts';
 import { HomePage } from '../components/templates';
-import { IContent } from '../interfaces/landing';
+import { IContent } from '../interfaces/pages/landing';
 import { prisma } from '../lib/prisma/prisma';
 
 interface Props {

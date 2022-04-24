@@ -60,7 +60,7 @@ const TableRow = ({ transaction, address }: Props) => {
           className="text-blue-600 dark:text-blue-500 hover:underline"
           href={`https://rinkeby.etherscan.io/address/${address}`}
         >
-          more information
+          {locale === 'en' ? 'more information' : 'daha fazla bilgi'}
         </a>
       </td>
     </tr>

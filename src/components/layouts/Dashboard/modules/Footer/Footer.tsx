@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import { useMoralis } from 'react-moralis';
+import { IFooter } from '../../../../../interfaces/pages/dashboard';
 import { APP_NAME } from '../../../../../utils/constants';
 import { LanguageSelector } from '../../../../common';
 import Icon, { Icons } from '../../../../common/Icon/Icon';
 
-const Footer = () => {
+interface Props {
+  data: IFooter;
+}
+
+const Footer = ({ data }: Props) => {
   const { logout } = useMoralis();
+  const { rights } = data;
 
   return (
     <footer className="p-4 bg-white shadow md:px-6 md:py-5 dark:bg-gray-800">
@@ -31,7 +37,7 @@ const Footer = () => {
         <Link href="/">
           <a className="hover:underline">{APP_NAME}</a>
         </Link>
-        . All Rights Reserved.
+        . {rights}
       </span>
     </footer>
   );

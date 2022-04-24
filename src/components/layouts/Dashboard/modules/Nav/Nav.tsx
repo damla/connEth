@@ -5,15 +5,20 @@ import { useEthBalance } from '../../../../../hooks/useEthBalance';
 import { getEllipsesText } from '../../../../../utils/utils';
 import MobileMenu from './MobileMenu/MobileMenu';
 import DesktopMenu from './DesktopMenu/DesktopMenu';
+import { INavbar } from '../../../../../interfaces/pages/dashboard';
 
-const Nav = () => {
+interface Props {
+  data: INavbar;
+}
+
+const Nav = ({ data }: Props) => {
   const { user } = useMoralis();
   const { formattedBalance, loading } = useEthBalance();
   const ethAddress = user?.get('ethAddress');
-
+  const { balance, loading: balanceLoading } = data;
   const infoBar = [
     {
-      name: `💰 Balance: ${loading ? 'Loading...' : formattedBalance}`,
+      name: `💰 ${balance}: ${loading ? balanceLoading : formattedBalance}`,
       href: `https://rinkeby.etherscan.io/address/${ethAddress}`,
       type: 'balance',
     },

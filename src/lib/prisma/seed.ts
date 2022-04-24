@@ -31,6 +31,56 @@ const pageData: Prisma.PageCreateInput[] = [
       },
     },
   },
+  {
+    language: Language.EN,
+    page: PageType.DASHBOARD,
+    content: {
+      navbar: {
+        balance: 'Balance',
+        loading: 'Yükleniyor...',
+      },
+      main: {
+        title: 'Transactions',
+        table: {
+          col1: 'FROM',
+          col2: 'TO',
+          col3: 'DATE',
+          col4: 'AMOUNT',
+          loading: 'Loading...',
+          noDataInformation: 'This address has no related transactions.',
+          search: 'Search for transaction',
+        },
+      },
+      footer: {
+        rights: 'All Rights Reserved.',
+      },
+    },
+  },
+  {
+    language: Language.TR,
+    page: PageType.DASHBOARD,
+    content: {
+      navbar: {
+        balance: 'Bakiye',
+        loading: 'Yükleniyor...',
+      },
+      main: {
+        title: 'İşlemler',
+        table: {
+          col1: 'GÖNDEREN',
+          col2: 'ALAN',
+          col3: 'TARİH',
+          col4: 'MİKTAR',
+          loading: 'Yükleniyor...',
+          noDataInformation: 'Bu adres ile ilişkili işlem bulunmamaktadır.',
+          search: 'İşlem ara',
+        },
+      },
+      footer: {
+        rights: 'Tüm hakları saklıdır.',
+      },
+    },
+  },
 ];
 
 async function main() {

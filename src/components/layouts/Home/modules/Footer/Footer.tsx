@@ -1,4 +1,4 @@
-import { IFooter } from '../../../../../interfaces/landing';
+import { IFooter } from '../../../../../interfaces/pages/landing';
 import { APP_NAME } from '../../../../../utils/constants';
 import { LanguageSelector } from '../../../../common';
 
