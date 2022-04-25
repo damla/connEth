@@ -20,7 +20,7 @@ const TableBody = ({ offset = 0, data }: Props) => {
     return (
       <tbody className="h-40">
         <tr>
-          <td className="w-10 px-6 font-medium text-white dark:text-white whitespace-nowrap">
+          <td className="w-10 px-6 font-medium text-white whitespace-nowrap">
             {loading}
           </td>
         </tr>
@@ -32,7 +32,7 @@ const TableBody = ({ offset = 0, data }: Props) => {
     return (
       <tbody className="h-40">
         <tr>
-          <td className="w-10 px-6 font-medium text-white dark:text-white whitespace-nowrap">
+          <td className="w-10 px-6 font-medium text-white whitespace-nowrap">
             {noDataInformation}
           </td>
         </tr>
