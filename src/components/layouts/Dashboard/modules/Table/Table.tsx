@@ -1,4 +1,6 @@
-import { SearchInput, TableBody } from '.';
+// import { useState } from 'react';
+import { Search, TableBody } from '.';
+// import { useEthTransactions } from '../../../../../hooks/useEthTransactions';
 import { ITable } from '../../../../../interfaces/pages/dashboard';
 
 interface Props {
@@ -7,11 +9,13 @@ interface Props {
 
 const Table = ({ data }: Props) => {
   const { search, col1, col2, col3, col4, ...others } = data;
+  // const { transactions } = useEthTransactions({ offset: 0 });
+  // const [data, setData] = useState([]);
 
   return (
     <div className="min-h-full max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <div className="relative overflow-x-auto mb-5 shadow-lg sm:rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">
-        <SearchInput search={search} />
+        <Search data={{ col1, col2, search }} />
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-white uppercase">
             <tr>

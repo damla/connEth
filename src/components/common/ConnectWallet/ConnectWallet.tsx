@@ -50,7 +50,7 @@ const ConnectWallet = ({ icon, defaultText }: Props) => {
       disabled={isAuthenticated}
       type="button"
       className={`text-center inline-flex items-center bg-blue-600 hover:bg-blue-500 text-white md:bg-gradient-to-br md:from-blue-600 md:to-green-400 md:hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ${
-        (isAuthenticating && classNames('opacity-50', 'cursor-not-allowed'),
+        (isAuthenticating && classNames('opacity-50 cursor-not-allowed'),
         !icon && 'py-4')
       }`}
     >
