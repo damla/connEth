@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Icon } from '../../../../../common';
 import { Icons } from '../../../../../common/Icon/Icon';
 import { useSearch } from '../../../../../../hooks/useSearch';
@@ -9,6 +9,7 @@ interface Props {
     col1: string;
     col2: string;
     search: string;
+    searchBy: string;
   };
 }
 
@@ -17,9 +18,9 @@ const enum Filter {
   TO = 'TO',
 }
 
-const Search = ({ data: { col1, col2, search } }: Props) => {
+const Search = ({ data: { col1, col2, search, searchBy } }: Props) => {
   const [current, setCurrent] = useState(Filter.FROM);
-  const { data, dataLoading, query, addQuery } = useSearch();
+  const { query, addQuery } = useSearch();
 
   useEffect(() => {
     !dataLoading && console.log('hay amk:', data);
@@ -31,7 +32,7 @@ const Search = ({ data: { col1, col2, search } }: Props) => {
       <div className="p-4">
         <div className="mb-5 flex">
           <h5 className="text-white text-base md:text-lg font-medium pr-3 md:pr-4">
-            Search by:
+            {searchBy}
           </h5>
           <button
             type="button"

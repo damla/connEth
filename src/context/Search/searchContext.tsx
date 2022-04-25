@@ -25,7 +25,7 @@ export const SearchContext = createContext<SearchContextType>(
 );
 
 export const SearchProvider = ({ children }: Props) => {
-  const { transactions } = useEthTransactions({ offset: 0 });
+  // const { transactions } = useEthTransactions({ offset: 0 });
   const [query, setQuery] = useState<string>(searchContextDefaultValues.query);
   const [dataLoading, setDataLoading] = useState(
     searchContextDefaultValues.dataLoading
@@ -63,33 +63,33 @@ export const SearchProvider = ({ children }: Props) => {
   // }, [transactions]);
 
   //2
-  const searchInFrom = useCallback(
-    async (query: string) => {
-      setDataLoading(true);
+  // const searchInFrom = useCallback(
+  //   async (query: string) => {
+  //     setDataLoading(true);
 
-      if (transactions && transactions.result) {
-        const searchedTransactions = transactions?.result.filter(
-          (transaction) =>
-            transaction.from_address
-              .toLowerCase()
-              .includes(query.toLowerCase()) ||
-            transaction.from_address
-              .toLowerCase()
-              .replace(' ', '')
-              .includes(query.toLowerCase())
-        );
-        console.log('filtreli:', searchedTransactions);
-        setData(searchedTransactions);
-        setDataLoading(false);
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [transactions]
-  );
+  //     if (transactions && transactions.result) {
+  //       const searchedTransactions = transactions?.result.filter(
+  //         (transaction) =>
+  //           transaction.from_address
+  //             .toLowerCase()
+  //             .includes(query.toLowerCase()) ||
+  //           transaction.from_address
+  //             .toLowerCase()
+  //             .replace(' ', '')
+  //             .includes(query.toLowerCase())
+  //       );
+  //       console.log('filtreli:', searchedTransactions);
+  //       setData(searchedTransactions);
+  //       setDataLoading(false);
+  //     }
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [transactions]
+  // );
 
-  useEffect(() => {
-    searchInFrom(query);
-  }, [searchInFrom, query]);
+  // useEffect(() => {
+  //   searchInFrom(query);
+  // }, [searchInFrom, query]);
 
   const addQuery = (q: string) => setQuery(q);
 
