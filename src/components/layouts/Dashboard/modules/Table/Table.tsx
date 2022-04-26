@@ -1,6 +1,4 @@
-// import { useState } from 'react';
-import { Search, TableBody } from '.';
-// import { useEthTransactions } from '../../../../../hooks/useEthTransactions';
+import { Pagination, Search, TableBody } from '.';
 import { ITable } from '../../../../../interfaces/pages/dashboard';
 
 interface Props {
@@ -13,6 +11,7 @@ const Table = ({ data }: Props) => {
   return (
     <div className="min-h-full max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <div className="relative overflow-x-auto mb-5 shadow-lg sm:rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">
+        {/* TODO: search */}
         <Search data={{ col1, col2, search, searchBy }} />
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-white uppercase">
@@ -34,11 +33,11 @@ const Table = ({ data }: Props) => {
               </th>
             </tr>
           </thead>
-          {/* TODO: pagination */}
           <TableBody data={others} />
         </table>
       </div>
-      {/* <Pagination /> */}
+      {/* TODO: pagination */}
+      <Pagination />
     </div>
   );
 };

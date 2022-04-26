@@ -17,6 +17,7 @@ const Nav = ({ data }: Props) => {
   const { formattedBalance, loading } = useEthBalance();
   const ethAddress = user?.get('ethAddress');
   const { balance, loading: balanceLoading } = data;
+
   const infoBar = [
     {
       name: `💰 ${balance}: ${loading ? balanceLoading : formattedBalance}`,

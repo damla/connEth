@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Icon } from '../../../../../common';
 import { Icons } from '../../../../../common/Icon/Icon';
 import { useSearch } from '../../../../../../hooks/useSearch';
-// TODO: check classnames
 
 interface Props {
   data: {
@@ -22,11 +21,6 @@ const Search = ({ data: { col1, col2, search, searchBy } }: Props) => {
   const [current, setCurrent] = useState(Filter.FROM);
   const { query, addQuery } = useSearch();
 
-  useEffect(() => {
-    !dataLoading && console.log('hay amk:', data);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dataLoading]);
-
   return (
     <>
       <div className="p-4">
@@ -37,7 +31,7 @@ const Search = ({ data: { col1, col2, search, searchBy } }: Props) => {
           <button
             type="button"
             onClick={() => setCurrent(Filter.FROM)}
-            className={`mr-2 md:mr-4 px-3 py-2 text-xs font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-300 ${
+            className={`mr-2 md:mr-3 px-3 py-2 text-xs font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-300 ${
               current === Filter.FROM
                 ? 'text-white bg-gray-700 hover:bg-gray-800'
                 : current === Filter.TO &&

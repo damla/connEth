@@ -1,5 +1,3 @@
-// TODO: refactor this file
-
 import { LANGUAGES_DATA } from './constants';
 
 // merge conditional classes in styling

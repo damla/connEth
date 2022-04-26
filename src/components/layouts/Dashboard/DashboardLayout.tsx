@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { IFooter, IMain, INavbar } from '../../../interfaces/pages/dashboard';
+import { IFooter, INavbar } from '../../../interfaces/pages/dashboard';
 
 import { Main, Footer, Nav } from './modules';
 
