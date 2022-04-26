@@ -9,6 +9,7 @@ export interface ITable {
   col3: string;
   col4: string;
   loading: string;
+  searchBy: string;
   noDataInformation: string;
   search: string;
 }

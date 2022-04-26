@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import 'tailwindcss/tailwind.css';
 import { MoralisProvider } from 'react-moralis';
 import { APP_ID, SERVER_URL } from '../utils/constants';
-import { ErrorProvider } from '../context';
+import { ErrorProvider, SearchProvider } from '../context';
 
 function MyApp({ Component, pageProps }: AppProps) {
   if (!APP_ID || !SERVER_URL)
@@ -13,7 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MoralisProvider serverUrl={SERVER_URL} appId={APP_ID}>
       <ErrorProvider>
-        <Component {...pageProps} />
+        <SearchProvider>
+          <Component {...pageProps} />
+        </SearchProvider>
       </ErrorProvider>
     </MoralisProvider>
   );

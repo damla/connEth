@@ -17,7 +17,7 @@ interface Props {
   }[];
 }
 
-function MobileMenu({ open, userName, infoBar }: Props) {
+function DesktopMenu({ open, userName, infoBar }: Props) {
   const { logout, user } = useMoralis();
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,6 @@ function MobileMenu({ open, userName, infoBar }: Props) {
           </div>
         </div>
         <div className="hidden md:block">
-          <div className="ml-4 flex items-center md:ml-6"></div>
           <div className="flex">
             {user && (
               <button
@@ -89,4 +88,4 @@ function MobileMenu({ open, userName, infoBar }: Props) {
   );
 }
 
-export default MobileMenu;
+export default DesktopMenu;

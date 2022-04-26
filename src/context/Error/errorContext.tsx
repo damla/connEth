@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, ReactNode, useState } from 'react';
-import { IError, ErrorContextType } from '../../interfaces/error';
+import { IError, ErrorContextType } from '../../interfaces/contexts/error';
 
 interface Props {
   children: ReactNode;

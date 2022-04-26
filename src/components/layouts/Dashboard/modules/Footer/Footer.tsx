@@ -14,7 +14,7 @@ const Footer = ({ data }: Props) => {
   const { rights } = data;
 
   return (
-    <footer className="p-4 bg-white shadow md:px-6 md:py-5 dark:bg-gray-800">
+    <footer className="p-4 bg-white shadow md:px-6 md:py-5">
       <div className="sm:flex sm:items-center sm:justify-between">
         <ul className="flex items-center mb-6 text-sm sm:mb-0">
           <Link href="/">
@@ -27,12 +27,12 @@ const Footer = ({ data }: Props) => {
             </a>
           </Link>
         </ul>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0">
           <LanguageSelector />
         </ul>
       </div>
-      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
-      <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+      <hr className="my-6 border-gray-200 sm:mx-auto lg:my-4" />
+      <span className="block text-sm text-gray-500 sm:text-center">
         © {new Date().getFullYear()}{' '}
         <Link href="/">
           <a className="hover:underline">{APP_NAME}</a>

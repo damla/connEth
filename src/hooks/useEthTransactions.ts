@@ -12,6 +12,8 @@ export const useEthTransactions = ({ offset = 0 }: Props) => {
   const ethAddress: string = user?.get('ethAddress') || '';
   const [isLoading, setIsLoading] = useState(true);
   const [transactions, setTransactions] = useState<Transactions>();
+  // const [page, setPage] = useState(0);
+  // const [totalPages, setTotalPages] = useState(0);
 
   const fetchEthTransaction = useCallback(
     async () => {
@@ -24,7 +26,7 @@ export const useEthTransactions = ({ offset = 0 }: Props) => {
               chain: 'rinkeby',
               address: ethAddress,
               offset: offset || 0, // offset is used for pagination
-              limit: 5, // 5 transactions per page
+              // limit: 100, // 5 transactions per page
             });
           setTransactions(ethTransactions);
         } catch (error) {
@@ -40,6 +42,11 @@ export const useEthTransactions = ({ offset = 0 }: Props) => {
 
   useEffect(() => {
     fetchEthTransaction();
+
+    // transactions?.result &&
+    //   transactions?.result.length > 0 &&
+    //   setTotalPages(Math.ceil(transactions?.result?.length / 5));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchEthTransaction]);
 
   return {
@@ -47,5 +54,8 @@ export const useEthTransactions = ({ offset = 0 }: Props) => {
     transactions,
     isLoading,
     offset,
+    // totalPages,
+    // page,
+    // setPage,
   };
 };
